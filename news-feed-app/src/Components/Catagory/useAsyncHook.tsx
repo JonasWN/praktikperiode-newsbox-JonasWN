@@ -15,6 +15,7 @@ function useAsyncHook(url: string) {
     const [result, setResult] = useState([])
 
     useEffect(() => {
+
         const fetchData = async () => {
             try {
                 setLoading(true)
@@ -29,9 +30,10 @@ function useAsyncHook(url: string) {
                 setLoading(false)
             }
         }
-        fetchData()
-    }, [url])
 
+        fetchData()
+
+    }, [url])
 
     return [result, loading];
 }

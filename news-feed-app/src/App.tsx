@@ -14,7 +14,8 @@ import { v4 as uuidv4 } from "uuid";
 
 const App: React.FC = () => {
 
-  let [checkedList, setCheckedList] = useState([
+  const [savedList, setSaved]: any = useState([])
+  const [checkedList, setCheckedList] = useState([
     {
       title: 'Europe',
       checked: true,
@@ -42,6 +43,7 @@ const App: React.FC = () => {
     },
   ])
 
+  // check if catagory is checked and should be listed
   const check = (catagory: string, state: boolean) => {
     let updated = {
       title: catagory,
@@ -54,14 +56,37 @@ const App: React.FC = () => {
     setCheckedList([...newArray])
   }
 
+  // save article to archieve
+  const saveArticle = (title: string, description: string, cover: string, link: string, catagory: string) => {
+    const index = savedList.findIndex((article: any) => article.title === title)
+
+    // if article is not saved => save it
+    if (index === -1) {
+      let savedArticle = {
+        title: title,
+        description: description,
+        cover: cover,
+        link: link,
+        catagory: catagory,
+        id: uuidv4()
+      }
+      setSaved([...savedList, savedArticle])
+    }
+  }
+
+  // delete article from archieves
+  const delArticle = (id: string) => {
+    setSaved([...savedList.filter((article: any) => article.id !== id)])
+  }
+
   return (
     <Router>
       <React.Fragment>
         <Header />
 
         <Switch>
-          <Route path="/archive" component={Archive} />
-          <Route path='/' exact render={(props) => <Home {...props} articles={checkedList} />} />
+          <Route path="/archive" exact render={(props) => <Archive {...props} savedList={savedList} articles={checkedList} delArticle={delArticle} />} />
+          <Route path='/' exact render={(props) => <Home {...props} articles={checkedList} saveArticle={saveArticle} />} />
           <Route path='/settings' exact render={(props) => <Settings {...props} list={checkedList} checked={check} />} />
         </Switch>
 

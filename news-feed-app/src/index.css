@@ -69,10 +69,72 @@ summary:focus {
 }
 
 .min-text {
-  min-width: 80px;
+  min-width: 20px;
   width: -webkit-fit-content;
   width: -moz-fit-content;
   width: fit-content;
+}
+
+.tgl {
+  display: none;
+}
+
+.tgl, .tgl:after, .tgl:before, .tgl *, .tgl *:after, .tgl *:before, .tgl + .tgl-btn {
+  box-sizing: border-box;
+}
+
+.tgl::selection, .tgl:after::selection, .tgl:before::selection, .tgl *::selection, .tgl *:after::selection, .tgl *:before::selection, .tgl + .tgl-btn::selection {
+  background: none;
+}
+
+.tgl + .tgl-btn {
+  outline: 0;
+  display: block;
+  width: 4em;
+  height: 1.8em;
+  position: relative;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.tgl + .tgl-btn:after, .tgl + .tgl-btn:before {
+  position: relative;
+  display: block;
+  content: "";
+  width: 50%;
+  height: 100%;
+}
+
+.tgl + .tgl-btn:after {
+  left: 0;
+}
+
+.tgl + .tgl-btn:before {
+  display: none;
+}
+
+.tgl:checked + .tgl-btn:after {
+  left: 50%;
+}
+
+.tgl-light + .tgl-btn {
+  background: #f0f0f0;
+  border-radius: 2em;
+  padding: 2px;
+  transition: all 0.4s ease;
+}
+
+.tgl-light + .tgl-btn:after {
+  border-radius: 50%;
+  background: #fff;
+  transition: all 0.2s ease;
+}
+
+.tgl-light:checked + .tgl-btn {
+  background: #9fd6ae;
 }
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
@@ -785,7 +847,7 @@ video {
 }
 
 .bg-btnDel{
-  background-color: var(--btn-delete-color);
+  background-color: var(--btn-delete);
 }
 
 .bg-btnAdd{
@@ -829,7 +891,7 @@ video {
 }
 
 .hover\:bg-btnDel:hover{
-  background-color: var(--btn-delete-color);
+  background-color: var(--btn-delete);
 }
 
 .hover\:bg-btnAdd:hover{
@@ -873,7 +935,7 @@ video {
 }
 
 .focus\:bg-btnDel:focus{
-  background-color: var(--btn-delete-color);
+  background-color: var(--btn-delete);
 }
 
 .focus\:bg-btnAdd:focus{
@@ -997,7 +1059,7 @@ video {
 }
 
 .border-btnDel{
-  border-color: var(--btn-delete-color);
+  border-color: var(--btn-delete);
 }
 
 .border-btnAdd{
@@ -1041,7 +1103,7 @@ video {
 }
 
 .hover\:border-btnDel:hover{
-  border-color: var(--btn-delete-color);
+  border-color: var(--btn-delete);
 }
 
 .hover\:border-btnAdd:hover{
@@ -1085,7 +1147,7 @@ video {
 }
 
 .focus\:border-btnDel:focus{
-  border-color: var(--btn-delete-color);
+  border-color: var(--btn-delete);
 }
 
 .focus\:border-btnAdd:focus{
@@ -4529,19 +4591,19 @@ video {
 }
 
 .placeholder-btnDel::-webkit-input-placeholder{
-  color: var(--btn-delete-color);
+  color: var(--btn-delete);
 }
 
 .placeholder-btnDel:-ms-input-placeholder{
-  color: var(--btn-delete-color);
+  color: var(--btn-delete);
 }
 
 .placeholder-btnDel::-ms-input-placeholder{
-  color: var(--btn-delete-color);
+  color: var(--btn-delete);
 }
 
 .placeholder-btnDel::placeholder{
-  color: var(--btn-delete-color);
+  color: var(--btn-delete);
 }
 
 .placeholder-btnAdd::-webkit-input-placeholder{
@@ -4705,19 +4767,19 @@ video {
 }
 
 .focus\:placeholder-btnDel:focus::-webkit-input-placeholder{
-  color: var(--btn-delete-color);
+  color: var(--btn-delete);
 }
 
 .focus\:placeholder-btnDel:focus:-ms-input-placeholder{
-  color: var(--btn-delete-color);
+  color: var(--btn-delete);
 }
 
 .focus\:placeholder-btnDel:focus::-ms-input-placeholder{
-  color: var(--btn-delete-color);
+  color: var(--btn-delete);
 }
 
 .focus\:placeholder-btnDel:focus::placeholder{
-  color: var(--btn-delete-color);
+  color: var(--btn-delete);
 }
 
 .focus\:placeholder-btnAdd:focus::-webkit-input-placeholder{
@@ -5084,7 +5146,7 @@ video {
 }
 
 .text-btnDel{
-  color: var(--btn-delete-color);
+  color: var(--btn-delete);
 }
 
 .text-btnAdd{
@@ -5128,7 +5190,7 @@ video {
 }
 
 .hover\:text-btnDel:hover{
-  color: var(--btn-delete-color);
+  color: var(--btn-delete);
 }
 
 .hover\:text-btnAdd:hover{
@@ -5172,7 +5234,7 @@ video {
 }
 
 .focus\:text-btnDel:focus{
-  color: var(--btn-delete-color);
+  color: var(--btn-delete);
 }
 
 .focus\:text-btnAdd:focus{
@@ -8415,7 +8477,7 @@ video {
   }
 
   .sm\:bg-btnDel{
-    background-color: var(--btn-delete-color);
+    background-color: var(--btn-delete);
   }
 
   .sm\:bg-btnAdd{
@@ -8459,7 +8521,7 @@ video {
   }
 
   .sm\:hover\:bg-btnDel:hover{
-    background-color: var(--btn-delete-color);
+    background-color: var(--btn-delete);
   }
 
   .sm\:hover\:bg-btnAdd:hover{
@@ -8503,7 +8565,7 @@ video {
   }
 
   .sm\:focus\:bg-btnDel:focus{
-    background-color: var(--btn-delete-color);
+    background-color: var(--btn-delete);
   }
 
   .sm\:focus\:bg-btnAdd:focus{
@@ -8627,7 +8689,7 @@ video {
   }
 
   .sm\:border-btnDel{
-    border-color: var(--btn-delete-color);
+    border-color: var(--btn-delete);
   }
 
   .sm\:border-btnAdd{
@@ -8671,7 +8733,7 @@ video {
   }
 
   .sm\:hover\:border-btnDel:hover{
-    border-color: var(--btn-delete-color);
+    border-color: var(--btn-delete);
   }
 
   .sm\:hover\:border-btnAdd:hover{
@@ -8715,7 +8777,7 @@ video {
   }
 
   .sm\:focus\:border-btnDel:focus{
-    border-color: var(--btn-delete-color);
+    border-color: var(--btn-delete);
   }
 
   .sm\:focus\:border-btnAdd:focus{
@@ -12159,19 +12221,19 @@ video {
   }
 
   .sm\:placeholder-btnDel::-webkit-input-placeholder{
-    color: var(--btn-delete-color);
+    color: var(--btn-delete);
   }
 
   .sm\:placeholder-btnDel:-ms-input-placeholder{
-    color: var(--btn-delete-color);
+    color: var(--btn-delete);
   }
 
   .sm\:placeholder-btnDel::-ms-input-placeholder{
-    color: var(--btn-delete-color);
+    color: var(--btn-delete);
   }
 
   .sm\:placeholder-btnDel::placeholder{
-    color: var(--btn-delete-color);
+    color: var(--btn-delete);
   }
 
   .sm\:placeholder-btnAdd::-webkit-input-placeholder{
@@ -12335,19 +12397,19 @@ video {
   }
 
   .sm\:focus\:placeholder-btnDel:focus::-webkit-input-placeholder{
-    color: var(--btn-delete-color);
+    color: var(--btn-delete);
   }
 
   .sm\:focus\:placeholder-btnDel:focus:-ms-input-placeholder{
-    color: var(--btn-delete-color);
+    color: var(--btn-delete);
   }
 
   .sm\:focus\:placeholder-btnDel:focus::-ms-input-placeholder{
-    color: var(--btn-delete-color);
+    color: var(--btn-delete);
   }
 
   .sm\:focus\:placeholder-btnDel:focus::placeholder{
-    color: var(--btn-delete-color);
+    color: var(--btn-delete);
   }
 
   .sm\:focus\:placeholder-btnAdd:focus::-webkit-input-placeholder{
@@ -12714,7 +12776,7 @@ video {
   }
 
   .sm\:text-btnDel{
-    color: var(--btn-delete-color);
+    color: var(--btn-delete);
   }
 
   .sm\:text-btnAdd{
@@ -12758,7 +12820,7 @@ video {
   }
 
   .sm\:hover\:text-btnDel:hover{
-    color: var(--btn-delete-color);
+    color: var(--btn-delete);
   }
 
   .sm\:hover\:text-btnAdd:hover{
@@ -12802,7 +12864,7 @@ video {
   }
 
   .sm\:focus\:text-btnDel:focus{
-    color: var(--btn-delete-color);
+    color: var(--btn-delete);
   }
 
   .sm\:focus\:text-btnAdd:focus{
@@ -16046,7 +16108,7 @@ video {
   }
 
   .md\:bg-btnDel{
-    background-color: var(--btn-delete-color);
+    background-color: var(--btn-delete);
   }
 
   .md\:bg-btnAdd{
@@ -16090,7 +16152,7 @@ video {
   }
 
   .md\:hover\:bg-btnDel:hover{
-    background-color: var(--btn-delete-color);
+    background-color: var(--btn-delete);
   }
 
   .md\:hover\:bg-btnAdd:hover{
@@ -16134,7 +16196,7 @@ video {
   }
 
   .md\:focus\:bg-btnDel:focus{
-    background-color: var(--btn-delete-color);
+    background-color: var(--btn-delete);
   }
 
   .md\:focus\:bg-btnAdd:focus{
@@ -16258,7 +16320,7 @@ video {
   }
 
   .md\:border-btnDel{
-    border-color: var(--btn-delete-color);
+    border-color: var(--btn-delete);
   }
 
   .md\:border-btnAdd{
@@ -16302,7 +16364,7 @@ video {
   }
 
   .md\:hover\:border-btnDel:hover{
-    border-color: var(--btn-delete-color);
+    border-color: var(--btn-delete);
   }
 
   .md\:hover\:border-btnAdd:hover{
@@ -16346,7 +16408,7 @@ video {
   }
 
   .md\:focus\:border-btnDel:focus{
-    border-color: var(--btn-delete-color);
+    border-color: var(--btn-delete);
   }
 
   .md\:focus\:border-btnAdd:focus{
@@ -19790,19 +19852,19 @@ video {
   }
 
   .md\:placeholder-btnDel::-webkit-input-placeholder{
-    color: var(--btn-delete-color);
+    color: var(--btn-delete);
   }
 
   .md\:placeholder-btnDel:-ms-input-placeholder{
-    color: var(--btn-delete-color);
+    color: var(--btn-delete);
   }
 
   .md\:placeholder-btnDel::-ms-input-placeholder{
-    color: var(--btn-delete-color);
+    color: var(--btn-delete);
   }
 
   .md\:placeholder-btnDel::placeholder{
-    color: var(--btn-delete-color);
+    color: var(--btn-delete);
   }
 
   .md\:placeholder-btnAdd::-webkit-input-placeholder{
@@ -19966,19 +20028,19 @@ video {
   }
 
   .md\:focus\:placeholder-btnDel:focus::-webkit-input-placeholder{
-    color: var(--btn-delete-color);
+    color: var(--btn-delete);
   }
 
   .md\:focus\:placeholder-btnDel:focus:-ms-input-placeholder{
-    color: var(--btn-delete-color);
+    color: var(--btn-delete);
   }
 
   .md\:focus\:placeholder-btnDel:focus::-ms-input-placeholder{
-    color: var(--btn-delete-color);
+    color: var(--btn-delete);
   }
 
   .md\:focus\:placeholder-btnDel:focus::placeholder{
-    color: var(--btn-delete-color);
+    color: var(--btn-delete);
   }
 
   .md\:focus\:placeholder-btnAdd:focus::-webkit-input-placeholder{
@@ -20345,7 +20407,7 @@ video {
   }
 
   .md\:text-btnDel{
-    color: var(--btn-delete-color);
+    color: var(--btn-delete);
   }
 
   .md\:text-btnAdd{
@@ -20389,7 +20451,7 @@ video {
   }
 
   .md\:hover\:text-btnDel:hover{
-    color: var(--btn-delete-color);
+    color: var(--btn-delete);
   }
 
   .md\:hover\:text-btnAdd:hover{
@@ -20433,7 +20495,7 @@ video {
   }
 
   .md\:focus\:text-btnDel:focus{
-    color: var(--btn-delete-color);
+    color: var(--btn-delete);
   }
 
   .md\:focus\:text-btnAdd:focus{
@@ -23677,7 +23739,7 @@ video {
   }
 
   .lg\:bg-btnDel{
-    background-color: var(--btn-delete-color);
+    background-color: var(--btn-delete);
   }
 
   .lg\:bg-btnAdd{
@@ -23721,7 +23783,7 @@ video {
   }
 
   .lg\:hover\:bg-btnDel:hover{
-    background-color: var(--btn-delete-color);
+    background-color: var(--btn-delete);
   }
 
   .lg\:hover\:bg-btnAdd:hover{
@@ -23765,7 +23827,7 @@ video {
   }
 
   .lg\:focus\:bg-btnDel:focus{
-    background-color: var(--btn-delete-color);
+    background-color: var(--btn-delete);
   }
 
   .lg\:focus\:bg-btnAdd:focus{
@@ -23889,7 +23951,7 @@ video {
   }
 
   .lg\:border-btnDel{
-    border-color: var(--btn-delete-color);
+    border-color: var(--btn-delete);
   }
 
   .lg\:border-btnAdd{
@@ -23933,7 +23995,7 @@ video {
   }
 
   .lg\:hover\:border-btnDel:hover{
-    border-color: var(--btn-delete-color);
+    border-color: var(--btn-delete);
   }
 
   .lg\:hover\:border-btnAdd:hover{
@@ -23977,7 +24039,7 @@ video {
   }
 
   .lg\:focus\:border-btnDel:focus{
-    border-color: var(--btn-delete-color);
+    border-color: var(--btn-delete);
   }
 
   .lg\:focus\:border-btnAdd:focus{
@@ -27421,19 +27483,19 @@ video {
   }
 
   .lg\:placeholder-btnDel::-webkit-input-placeholder{
-    color: var(--btn-delete-color);
+    color: var(--btn-delete);
   }
 
   .lg\:placeholder-btnDel:-ms-input-placeholder{
-    color: var(--btn-delete-color);
+    color: var(--btn-delete);
   }
 
   .lg\:placeholder-btnDel::-ms-input-placeholder{
-    color: var(--btn-delete-color);
+    color: var(--btn-delete);
   }
 
   .lg\:placeholder-btnDel::placeholder{
-    color: var(--btn-delete-color);
+    color: var(--btn-delete);
   }
 
   .lg\:placeholder-btnAdd::-webkit-input-placeholder{
@@ -27597,19 +27659,19 @@ video {
   }
 
   .lg\:focus\:placeholder-btnDel:focus::-webkit-input-placeholder{
-    color: var(--btn-delete-color);
+    color: var(--btn-delete);
   }
 
   .lg\:focus\:placeholder-btnDel:focus:-ms-input-placeholder{
-    color: var(--btn-delete-color);
+    color: var(--btn-delete);
   }
 
   .lg\:focus\:placeholder-btnDel:focus::-ms-input-placeholder{
-    color: var(--btn-delete-color);
+    color: var(--btn-delete);
   }
 
   .lg\:focus\:placeholder-btnDel:focus::placeholder{
-    color: var(--btn-delete-color);
+    color: var(--btn-delete);
   }
 
   .lg\:focus\:placeholder-btnAdd:focus::-webkit-input-placeholder{
@@ -27976,7 +28038,7 @@ video {
   }
 
   .lg\:text-btnDel{
-    color: var(--btn-delete-color);
+    color: var(--btn-delete);
   }
 
   .lg\:text-btnAdd{
@@ -28020,7 +28082,7 @@ video {
   }
 
   .lg\:hover\:text-btnDel:hover{
-    color: var(--btn-delete-color);
+    color: var(--btn-delete);
   }
 
   .lg\:hover\:text-btnAdd:hover{
@@ -28064,7 +28126,7 @@ video {
   }
 
   .lg\:focus\:text-btnDel:focus{
-    color: var(--btn-delete-color);
+    color: var(--btn-delete);
   }
 
   .lg\:focus\:text-btnAdd:focus{
@@ -31308,7 +31370,7 @@ video {
   }
 
   .xl\:bg-btnDel{
-    background-color: var(--btn-delete-color);
+    background-color: var(--btn-delete);
   }
 
   .xl\:bg-btnAdd{
@@ -31352,7 +31414,7 @@ video {
   }
 
   .xl\:hover\:bg-btnDel:hover{
-    background-color: var(--btn-delete-color);
+    background-color: var(--btn-delete);
   }
 
   .xl\:hover\:bg-btnAdd:hover{
@@ -31396,7 +31458,7 @@ video {
   }
 
   .xl\:focus\:bg-btnDel:focus{
-    background-color: var(--btn-delete-color);
+    background-color: var(--btn-delete);
   }
 
   .xl\:focus\:bg-btnAdd:focus{
@@ -31520,7 +31582,7 @@ video {
   }
 
   .xl\:border-btnDel{
-    border-color: var(--btn-delete-color);
+    border-color: var(--btn-delete);
   }
 
   .xl\:border-btnAdd{
@@ -31564,7 +31626,7 @@ video {
   }
 
   .xl\:hover\:border-btnDel:hover{
-    border-color: var(--btn-delete-color);
+    border-color: var(--btn-delete);
   }
 
   .xl\:hover\:border-btnAdd:hover{
@@ -31608,7 +31670,7 @@ video {
   }
 
   .xl\:focus\:border-btnDel:focus{
-    border-color: var(--btn-delete-color);
+    border-color: var(--btn-delete);
   }
 
   .xl\:focus\:border-btnAdd:focus{
@@ -35052,19 +35114,19 @@ video {
   }
 
   .xl\:placeholder-btnDel::-webkit-input-placeholder{
-    color: var(--btn-delete-color);
+    color: var(--btn-delete);
   }
 
   .xl\:placeholder-btnDel:-ms-input-placeholder{
-    color: var(--btn-delete-color);
+    color: var(--btn-delete);
   }
 
   .xl\:placeholder-btnDel::-ms-input-placeholder{
-    color: var(--btn-delete-color);
+    color: var(--btn-delete);
   }
 
   .xl\:placeholder-btnDel::placeholder{
-    color: var(--btn-delete-color);
+    color: var(--btn-delete);
   }
 
   .xl\:placeholder-btnAdd::-webkit-input-placeholder{
@@ -35228,19 +35290,19 @@ video {
   }
 
   .xl\:focus\:placeholder-btnDel:focus::-webkit-input-placeholder{
-    color: var(--btn-delete-color);
+    color: var(--btn-delete);
   }
 
   .xl\:focus\:placeholder-btnDel:focus:-ms-input-placeholder{
-    color: var(--btn-delete-color);
+    color: var(--btn-delete);
   }
 
   .xl\:focus\:placeholder-btnDel:focus::-ms-input-placeholder{
-    color: var(--btn-delete-color);
+    color: var(--btn-delete);
   }
 
   .xl\:focus\:placeholder-btnDel:focus::placeholder{
-    color: var(--btn-delete-color);
+    color: var(--btn-delete);
   }
 
   .xl\:focus\:placeholder-btnAdd:focus::-webkit-input-placeholder{
@@ -35607,7 +35669,7 @@ video {
   }
 
   .xl\:text-btnDel{
-    color: var(--btn-delete-color);
+    color: var(--btn-delete);
   }
 
   .xl\:text-btnAdd{
@@ -35651,7 +35713,7 @@ video {
   }
 
   .xl\:hover\:text-btnDel:hover{
-    color: var(--btn-delete-color);
+    color: var(--btn-delete);
   }
 
   .xl\:hover\:text-btnAdd:hover{
@@ -35695,7 +35757,7 @@ video {
   }
 
   .xl\:focus\:text-btnDel:focus{
-    color: var(--btn-delete-color);
+    color: var(--btn-delete);
   }
 
   .xl\:focus\:text-btnAdd:focus{

@@ -7,7 +7,7 @@ module.exports = {
       font: 'var(--font-color)',
       catagoryHd: 'var(--catagory-hd-color)',
       border: 'var(--border-color)',
-      btnDel: 'var(--btn-delete-color)',
+      btnDel: 'var(--btn-delete)',
       btnAdd: 'var(--btn-add)',
       footer: '#ff8100',
       input: 'var(--input-color)',

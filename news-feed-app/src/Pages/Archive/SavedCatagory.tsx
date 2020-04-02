@@ -1,16 +1,18 @@
-import React, { useEffect, useState } from 'react'
-import Summary from './Summary'
-import Article from './Article'
+import React, { useState, useEffect } from 'react'
+import Summary from '../../Components/Catagory/Summary'
+import Article from '../../Components/Catagory/Article'
+import SavedArticle from './SavedArticle'
 
 interface Props {
+    savedList: any,
     articles: {
         title: string;
         checked: boolean;
     }[],
-    saveArticle: (title: string, description: string, cover: string, link: string, catagory: string) => void,
+    delArticle: (id: string) => void
 }
 
-const Catagory: React.FC<Props> = ({ articles, saveArticle }) => {
+const SavedCatagory: React.FC<Props> = ({ savedList, articles, delArticle }) => {
     const [checked, setChecked]: any = useState([])
 
     useEffect(() => {
@@ -24,7 +26,7 @@ const Catagory: React.FC<Props> = ({ articles, saveArticle }) => {
                 return (
                     <details className="border-border border-t" key={item.id}>
                         <Summary title={item.title} />
-                        <Article title={item.title} saveArticle={saveArticle} />
+                        <SavedArticle catagory={item.title} savedList={savedList} delArticle={delArticle} />
                     </details>
                 )
             })}
@@ -32,4 +34,4 @@ const Catagory: React.FC<Props> = ({ articles, saveArticle }) => {
     )
 }
 
-export default Catagory
+export default SavedCatagory
