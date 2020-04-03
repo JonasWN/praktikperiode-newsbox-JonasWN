@@ -21,16 +21,21 @@ const SavedCatagory: React.FC<Props> = ({ savedList, articles, delArticle }) => 
     }, [articles])
 
     return (
-        <React.Fragment>
-            {checked.map((item: any) => {
-                return (
-                    <details className="border-border border-t" key={item.id}>
-                        <Summary title={item.title} />
-                        <SavedArticle catagory={item.title} savedList={savedList} delArticle={delArticle} />
-                    </details>
-                )
-            })}
-        </React.Fragment>
+        checked.map((item: any, id: any) => {
+            return (
+                <React.Fragment key={item.id}>
+                    {id === checked.length - 1 ?
+                        <details className="border-border mb-12">
+                            <Summary title={item.title} />
+                            <SavedArticle catagory={item.title} savedList={savedList} delArticle={delArticle} />
+                        </details>
+                        : <details className="border-border" >
+                            <Summary title={item.title} />
+                            <SavedArticle catagory={item.title} savedList={savedList} delArticle={delArticle} />
+                        </details>}
+                </React.Fragment>
+            )
+        })
     )
 }
 

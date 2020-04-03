@@ -22,7 +22,7 @@ const SavedArticle: React.FC<Props> = ({ catagory, savedList, delArticle }) => {
         <React.Fragment>
             {checked.map((article: any) => {
                 return (
-                    <section className='h-24 py-4 border-border border-t px-4' key={uuidv4()}>
+                    <section className='h-24 py-4 border-border border-b px-4' key={uuidv4()}>
                         <SavedText link={article.link} img={article.cover} header={article.title} description={article.description} delArticle={delArticle} id={article.id} />
                     </section>
                 )

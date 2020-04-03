@@ -24,6 +24,7 @@
 }
 * {
     transition: background .2s ease-in-out, color .4s ease-in-out, border .4s ease-in-out;
+    scroll-behavior: smooth;
 }
 summary::-webkit-details-marker {
     display: none; }
@@ -75,8 +76,8 @@ summary:focus {
   .tgl + .tgl-btn {
     outline: 0;
     display: block;
-    width: 4em;
-    height: 1.8em;
+    width: 3.6em;
+    height: 1.49em;
     position: relative;
     cursor: pointer;
     -webkit-user-select: none;
@@ -88,7 +89,7 @@ summary:focus {
     position: relative;
     display: block;
     content: "";
-    width: 50%;
+    width: 40%;
     height: 100%;
   }
   .tgl + .tgl-btn:after {
@@ -98,7 +99,7 @@ summary:focus {
     display: none;
   }
   .tgl:checked + .tgl-btn:after {
-    left: 50%;
+    left: 60%;
   }
   
   .tgl-light + .tgl-btn {

@@ -1,6 +1,7 @@
 import React from 'react'
 import Catagory from '../../Components/Catagory/Catagory'
 
+
 interface Props {
     articles: {
         title: string;

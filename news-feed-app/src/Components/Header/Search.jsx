@@ -22,10 +22,10 @@ const Search = () => {
             inputRef.current.focus()
     }
 
+
     return (
         <section className="border-b border-border border-l flex justify-around items-center p-2 bg-secondary rounded h-10 mt-8">
             <input onBlur={onFocus} onFocus={onFocus} ref={inputRef} type="text" placeholder="Search News" className="w-9/12 focus:outline-none bg-secondary text-sm text-input placeholder-input font-semibold" />
-            {/* <AiOutlineFileSearch className="text-font" /> */}
             <div onClick={() => onFocus()}>
                 <Lottie options={defaultOptions}
                     height={35}

@@ -10,6 +10,7 @@ import {
   Route,
 } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
+import { AnimatePresence } from 'framer-motion';
 
 
 const App: React.FC = () => {
@@ -81,8 +82,9 @@ const App: React.FC = () => {
 
   return (
     <Router>
-      <React.Fragment>
+      <>
         <Header />
+
 
         <Switch>
           <Route path="/archive" exact render={(props) => <Archive {...props} savedList={savedList} articles={checkedList} delArticle={delArticle} />} />
@@ -90,8 +92,10 @@ const App: React.FC = () => {
           <Route path='/settings' exact render={(props) => <Settings {...props} list={checkedList} checked={check} />} />
         </Switch>
 
+
         <Footer />
-      </React.Fragment>
+
+      </>
     </Router>
   );
 }

@@ -21,7 +21,7 @@ const Summary = ({ title }) => {
     };
 
     return (
-        <summary className='flex items-center h-12 px-4'>
+        <summary className='flex items-center h-12 px-4 sticky z-10 top-0 bg-primary border-border border-b'>
             <div className='flex items-center'>
                 <picture className='shadow-lg rounded-full h-8 w-8 p-1 flex justify-center items-center mr-2'>
                     <img src={CatagoryIcon} alt="Catagory Icon" className='w-4/5' />
