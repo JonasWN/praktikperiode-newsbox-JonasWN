@@ -1,5 +1,3 @@
-
-
 const xmlReq = async (url) => {
     let xhttp = new XMLHttpRequest();
     xhttp.open("GET", url, true);

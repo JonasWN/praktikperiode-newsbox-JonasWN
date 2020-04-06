@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import Summary from './Summary'
 import Article from './Article'
-import { motion } from 'framer-motion'
 
 interface Props {
     articles: {
@@ -24,14 +23,14 @@ const Catagory: React.FC<Props> = ({ articles, saveArticle }) => {
             return (
                 <React.Fragment key={item.id}>
                     {id === checked.length - 1 ?
-                        <motion.details className="border-border mb-12" >
+                        <details className="border-border mb-12" >
                             <Summary title={item.title} />
                             <Article title={item.title} saveArticle={saveArticle} />
-                        </motion.details>
-                        : <motion.details className="border-border" >
+                        </details>
+                        : <details className="border-border" >
                             <Summary title={item.title} />
                             <Article title={item.title} saveArticle={saveArticle} />
-                        </motion.details>}
+                        </details>}
                 </React.Fragment>
             )
         })

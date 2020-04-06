@@ -18,7 +18,7 @@ const Article: React.FC<Props> = ({ title, saveArticle }) => {
         <React.Fragment>
             {result.map((article: any) => {
                 return (
-                    <section className='h-24 py-4 border-border border-b px-4' key={uuidv4()}>
+                    <section className='h-24 py-4 border-border border-b px-4 relative' key={uuidv4()}>
                         <Text saveArticle={saveArticle} catagory={title} link={article.link["#text"]} img={article["media:content"] !== undefined ? article["media:content"]["@attributes"].url : Cover} header={article.title["#text"]} description={article.description["#text"]} />
                     </section>
                 )
