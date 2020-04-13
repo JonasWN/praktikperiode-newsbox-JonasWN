@@ -2,15 +2,18 @@ import React, { useEffect, useState } from 'react'
 import Summary from './Summary'
 import Article from './Article'
 
+
 interface Props {
     articles: {
         title: string;
         checked: boolean;
     }[],
     saveArticle: (title: string, description: string, cover: string, link: string, catagory: string) => void,
+    refresh: boolean,
+    setFreshed: () => void
 }
 
-const Catagory: React.FC<Props> = ({ articles, saveArticle }) => {
+const Catagory: React.FC<Props> = ({ articles, saveArticle, refresh, setFreshed }) => {
     const [checked, setChecked]: any = useState([])
 
     useEffect(() => {
@@ -25,11 +28,11 @@ const Catagory: React.FC<Props> = ({ articles, saveArticle }) => {
                     {id === checked.length - 1 ?
                         <details className="border-border mb-12" >
                             <Summary title={item.title} />
-                            <Article title={item.title} saveArticle={saveArticle} />
+                            <Article title={item.title} saveArticle={saveArticle} refresh={refresh} setFreshed={setFreshed} />
                         </details>
                         : <details className="border-border" >
                             <Summary title={item.title} />
-                            <Article title={item.title} saveArticle={saveArticle} />
+                            <Article title={item.title} saveArticle={saveArticle} refresh={refresh} setFreshed={setFreshed} />
                         </details>}
                 </React.Fragment>
             )
