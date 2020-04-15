@@ -13,11 +13,11 @@ interface Props {
 const Home: React.FC<Props> = ({ articles, saveArticle }) => {
     const [refresh, setRefresh] = useState(false)
 
-    useEffect(() => {
-        window.addEventListener('scroll', (e) => console.log(window.pageYOffset));
+    // useEffect(() => {
+    //     window.addEventListener('scroll', (e) => console.log(window.pageYOffset));
 
-        return () => window.removeEventListener('scroll', (e) => console.log(e.target))
-    })
+    //     return () => window.removeEventListener('scroll', (e) => console.log(e.target))
+    // })
 
     const refreshed = () => {
         setRefresh(false)

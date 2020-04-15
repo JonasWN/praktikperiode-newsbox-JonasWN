@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import Summary from './Summary'
 import Article from './Article'
-
+import { SettingsContext } from '../../Context/SettingsContext'
 
 interface Props {
     articles: {
@@ -15,9 +15,10 @@ interface Props {
 
 const Catagory: React.FC<Props> = ({ articles, saveArticle, refresh, setFreshed }) => {
     const [checked, setChecked]: any = useState([])
+    const [settings, setSettings, check] = useContext(SettingsContext)
 
     useEffect(() => {
-        let checkList = articles.filter(article => article.checked === true)
+        let checkList = settings.filter((article: any) => article.checked === true)
         setChecked([...checkList])
     }, [articles])
 

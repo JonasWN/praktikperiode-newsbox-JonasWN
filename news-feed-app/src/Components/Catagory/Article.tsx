@@ -6,6 +6,7 @@ import Text from './Text'
 import Lottie from 'react-lottie';
 import * as animationData from '../../Animations/loading (2).json'
 
+
 interface Props {
     title: string,
     saveArticle: (title: string, description: string, cover: string, link: string, catagory: string) => void,
@@ -29,7 +30,10 @@ const Article: React.FC<Props> = ({ title, saveArticle, refresh, setFreshed }) =
     };
 
     useEffect(() => {
-        setQuery(`https://rss.nytimes.com/services/xml/rss/nyt/${title}.xml`)
+        if (refresh === true) {
+            setQuery(`https://rss.nytimes.com/services/xml/rss/nyt/${title}.xml`)
+            setFreshed()
+        }
     }, [refresh])
 
     return (
@@ -40,7 +44,7 @@ const Article: React.FC<Props> = ({ title, saveArticle, refresh, setFreshed }) =
             {result.map((article: any) => {
                 return (
                     <section className='h-24 py-4 border-border border-b px-4 relative' key={uuidv4()}>
-                        <Text saveArticle={saveArticle} catagory={title} link={article.link["#text"]} img={article["media:content"] !== undefined ? article["media:content"]["@attributes"].url : Cover} header={article.title["#text"]} description={article.description["#text"]} />
+                        <Text catagory={title} link={article.link["#text"]} img={article["media:content"] !== undefined ? article["media:content"]["@attributes"].url : Cover} header={article.title["#text"]} description={article.description["#text"]} />
                     </section>
                 )
             })}

@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
-import { motion, useTransform, useSpring, useAnimation } from 'framer-motion'
+import React, { useState, useContext } from 'react'
+import { motion, useTransform, useSpring } from 'framer-motion'
 import { MdDeleteSweep } from 'react-icons/md'
 import Lottie from 'react-lottie';
 import * as animationData from '../../Animations/del.json'
+import { SaveArticleContext } from '../../Context/SaveArticleContext'
 
 const defaultOptions = {
     loop: false,
@@ -13,7 +14,8 @@ const defaultOptions = {
     },
 };
 
-const Text = ({ link, img, header, description, delArticle, id }) => {
+const Text = ({ link, img, header, description, id }) => {
+    const [savedList, saveArticle, delArticle] = useContext(SaveArticleContext)
     const [saved, setSaved] = useState(false)
     const x = useSpring(0, { stiffness: 600, damping: 200, })
     const width = useTransform(x, [-120, 0], [800, 0])

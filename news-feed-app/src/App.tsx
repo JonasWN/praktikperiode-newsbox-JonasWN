@@ -10,8 +10,8 @@ import {
   Route,
 } from "react-router-dom";
 import { v4 as uuidv4 } from "uuid";
-import { AnimatePresence } from 'framer-motion';
-
+import { SettingsProvider } from './Context/SettingsContext'
+import { SaveArticleProvider } from './Context/SaveArticleContext'
 
 const App: React.FC = () => {
 
@@ -51,10 +51,20 @@ const App: React.FC = () => {
       checked: state,
       id: uuidv4(),
     }
-    let pos = checkedList.map(function (e) { return e.title; }).indexOf(catagory);
-    let newArray = checkedList
-    newArray[pos] = updated
-    setCheckedList([...newArray])
+    let pos = checkedList.map(function (e) { return e.title; }).indexOf(catagory); // Find the index of the catagory that was changed in the array
+    let newArray = [...checkedList] // Copy old CheckedList
+    newArray[pos] = updated // Replace the Index with the updated state of it in var-updated
+    setCheckedList(newArray)
+  }
+
+  const swapOrder = (order: any) => {
+    let newList = [...checkedList]
+    for (let i = 0; i <= order.length; i++) {
+      if (newList[i + 1]) {
+        newList[i].title = newList[order[i]].title
+      }
+    }
+    setCheckedList(newList)
   }
 
   // save article to archieve
@@ -85,18 +95,20 @@ const App: React.FC = () => {
       <>
         <Header />
 
-
         <Switch>
-          <Route path="/archive" exact render={(props) => <Archive {...props} savedList={savedList} articles={checkedList} delArticle={delArticle} />} />
-          <Route path='/' exact render={(props) => <Home {...props} articles={checkedList} saveArticle={saveArticle} />} />
-          <Route path='/settings' exact render={(props) => <Settings {...props} list={checkedList} checked={check} />} />
+          <SettingsProvider>
+            <SaveArticleProvider>
+              <Route path="/archive" exact render={(props) => <Archive {...props} savedList={savedList} articles={checkedList} delArticle={delArticle} />} />
+              <Route path='/' exact render={(props) => <Home {...props} articles={checkedList} saveArticle={saveArticle} />} />
+              <Route path='/settings' exact render={(props) => <Settings {...props} list={checkedList} checked={check} swapOrder={swapOrder} />} />
+            </SaveArticleProvider>
+          </SettingsProvider>
         </Switch>
-
 
         <Footer />
 
       </>
-    </Router>
+    </Router >
   );
 }
 

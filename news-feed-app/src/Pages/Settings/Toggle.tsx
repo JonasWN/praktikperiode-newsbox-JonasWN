@@ -15,9 +15,10 @@ const Toggle: React.FC = () => {
         let newTheme = localStorage.getItem('theme')
         setTheme(newTheme)
     }
+
     return (
-        <div className="my-12 w-48 mx-auto text-center text-catagoryHd">
-            <div onClick={handleTheme} className="focus:outline-none mx-auto border-border border font-semibold rounded-full py-2 px-4">Toggle Dark Mode</div>
+        <div className="my-12 w-48 mx-auto text-center text-catagoryHd" onClick={handleTheme}>
+            <div className="focus:outline-none mx-auto border-border border font-semibold rounded-full py-2 px-4">Toggle Dark Mode</div>
         </div>
     )
 }

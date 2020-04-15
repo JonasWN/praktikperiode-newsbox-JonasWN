@@ -29,6 +29,10 @@
   scroll-behavior: smooth;
 }
 
+body {
+  overscroll-behavior-y: contain
+}
+
 summary::-webkit-details-marker {
   display: none;
 }
@@ -135,7 +139,7 @@ summary:focus {
 }
 
 .tgl-light:checked + .tgl-btn {
-  background: #9fd6ae;
+  background: #87bcbf;
 }
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */

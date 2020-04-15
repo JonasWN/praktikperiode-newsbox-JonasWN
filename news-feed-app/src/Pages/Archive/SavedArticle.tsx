@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect, useContext } from 'react'
 import { title } from 'process'
 import SavedText from './SavedText'
 import { v4 as uuidv4 } from "uuid";
+import { SaveArticleContext } from '../../Context/SaveArticleContext'
 
 interface Props {
     catagory: string,
@@ -9,8 +10,8 @@ interface Props {
     delArticle: (id: string) => void
 }
 
-const SavedArticle: React.FC<Props> = ({ catagory, savedList, delArticle }) => {
-
+const SavedArticle: React.FC<Props> = ({ catagory, delArticle }) => {
+    const [savedList] = useContext(SaveArticleContext)
     const [checked, setChecked]: any = useState([])
 
     useEffect(() => {
@@ -23,7 +24,7 @@ const SavedArticle: React.FC<Props> = ({ catagory, savedList, delArticle }) => {
             {checked.map((article: any) => {
                 return (
                     <section className='h-24 py-4 border-border border-b px-4 relative' key={uuidv4()}>
-                        <SavedText link={article.link} img={article.cover} header={article.title} description={article.description} delArticle={delArticle} id={article.id} />
+                        <SavedText link={article.link} img={article.cover} header={article.title} description={article.description} id={article.id} />
                     </section>
                 )
             })}
