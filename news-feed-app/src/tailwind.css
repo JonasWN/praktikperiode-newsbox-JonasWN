@@ -20,7 +20,7 @@
     --btn-delete: #d95454;
     --btn-add: #87bcbf;
     --input-color: #466686;
-    --settings-bg: #1e2833;
+    --settings-bg: #f1f8ff;
 }
 * {
     transition: background .2s ease-in-out, color .4s ease-in-out, border .4s ease-in-out;
