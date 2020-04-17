@@ -30,7 +30,7 @@ const Summary: React.FC<Props> = ({ title }) => {
                 <h2 className='text-catagoryHd font-bold uppercase text-sm'>{title}</h2>
             </div>
             {/* <IoIosArrowForward className="ml-auto" /> */}
-            <div className="ml-40 ml-auto flex items-center h-12">
+            {/* <div className="ml-40 ml-auto flex items-center h-12">
                 <Lottie options={defaultOptions}
                     height={225}
                     width={12}
@@ -39,7 +39,7 @@ const Summary: React.FC<Props> = ({ title }) => {
                 // style={{ transform: 'rotate(90deg)' }}
                 />
 
-            </div>
+            </div> */}
         </summary>
     )
 }

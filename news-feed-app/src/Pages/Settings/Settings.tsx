@@ -9,8 +9,8 @@ interface Props {
 const Settings: React.FC<Props> = () => {
     return (
         <React.Fragment>
-            <main className="bg-settings settings-height px-4">
-                <div className="text-center p-8 ">
+            <main className="bg-settings pb-12 h-screen px-4">
+                <div className="text-center p-4 ">
                     <h2 className="text-btnAdd font-semibold text-2xl">Manage</h2>
                     <h3 className="text-sm font-normal text-catagoryHd">Catagories</h3>
                 </div>

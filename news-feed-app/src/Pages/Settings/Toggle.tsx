@@ -17,7 +17,7 @@ const Toggle: React.FC = () => {
     }
 
     return (
-        <div className="my-12 w-48 mx-auto text-center text-catagoryHd" onClick={handleTheme}>
+        <div className="mt-12 w-48 mx-auto text-center text-catagoryHd" onClick={handleTheme}>
             <div className="focus:outline-none mx-auto border-border border font-semibold rounded-full py-2 px-4">Toggle Dark Mode</div>
         </div>
     )

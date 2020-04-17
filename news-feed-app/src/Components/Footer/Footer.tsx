@@ -29,7 +29,9 @@ const Footer: React.FC = () => {
                     <AiOutlineToTop onClick={scrollToTop} className="text-2xl text-catagoryHd" />
                 </li>
                 <li className="bg-catagoryHd footer-btn mb-12 bg-btn-delete rounded-full flex justify-center items-center">
-                    <IoIosRefresh className="text-2xl text-primary" />
+                    <Link to={`/${title}`} >
+                        <IoIosRefresh className="text-2xl text-primary" />
+                    </Link>
                 </li>
                 <Theme />
                 <li className="h-full w-auto flex justify-center items-center"  >
