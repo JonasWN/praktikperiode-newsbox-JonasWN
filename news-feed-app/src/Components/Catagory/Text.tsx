@@ -62,7 +62,7 @@ const Text: React.FC<Props> = ({ link, img, header, description, catagory }) => 
     return (
         <div className="flex">
             {swiped ? <motion.div style={{ x: coverX }} className="absolute h-full w-2 bg-btnAdd left-0 top-0"></motion.div> : null}
-            <motion.img src={img} style={{ x: coverX }} alt="Article Cover" className="mr-4 filter-img w-16 h-16 " />
+            <motion.img src={img} style={{ x: coverX }} alt="Article Cover" className="mr-4 filter-img w-16 h-16 rounded-full shadow-lg object-contain" />
             <motion.article className='h-full leading-5 min-text mr-6' style={{ x: coverX }}>
                 <a href={link}> <h3 className="text-catagoryHd font-bold text-sm hd-clamp">{header}</h3></a>
                 <p className="line-clamp text-font font-light text-sm">{description}</p>
