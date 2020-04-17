@@ -64,7 +64,7 @@ const Text: React.FC<Props> = ({ link, img, header, description, catagory }) => 
             {swiped ? <motion.div style={{ x: coverX }} className="absolute h-full w-2 bg-btnAdd left-0 top-0"></motion.div> : null}
             <motion.img src={img} style={{ x: coverX }} alt="Article Cover" className="mr-4 filter-img w-16 h-16 rounded-full shadow-lg object-contain" />
             <motion.article className='h-full leading-5 min-text mr-6' style={{ x: coverX }}>
-                <a href={link}> <h3 className="text-catagoryHd font-bold text-sm hd-clamp">{header}</h3></a>
+                <a href={link} target="_blank"> <h3 className="text-catagoryHd font-bold text-sm hd-clamp">{header}</h3></a>
                 <p className="line-clamp text-font font-light text-sm">{description}</p>
             </motion.article>
             <motion.div onDrag={handleDrag} onDragTransitionEnd={saved ? handleDragEnd : () => null} style={{ x }} drag={"x"} dragConstraints={{ left: 0, right: 0 }} className="w-16 absolute right-0 top-0 h-full"></motion.div>

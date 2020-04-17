@@ -51,7 +51,7 @@ const Text: React.FC<Props> = ({ link, img, header, description, id }) => {
         <div className="flex">
             <motion.img src={img} style={{ x: coverX }} alt="Article Cover" className="mr-4 filter-img object-contain w-16 rounded-full shadow-lg" />
             <motion.article className='h-full leading-5 min-text mr-6' style={{ x: coverX }}>
-                <a href={link}> <h3 className="text-catagoryHd font-bold text-sm hd-clamp">{header}</h3></a>
+                <a href={link} target="_blank"> <h3 className="text-catagoryHd font-bold text-sm hd-clamp">{header}</h3></a>
                 <p className="line-clamp text-font font-light text-sm">{description}</p>
             </motion.article>
             <motion.div onDrag={handleDrag} onDragEnd={saved ? handleDragEnd : () => null} style={{ x }} drag={"x"} dragConstraints={{ left: 0, right: 0 }} className="w-16 absolute right-0 top-0 h-full"></motion.div>
