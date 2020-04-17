@@ -27,18 +27,12 @@ const fn = (order, down, originalIndex, curIndex, y) => index =>
         };
 
 interface Props {
-    list: {
-        title: string;
-        checked: boolean;
-        id: string;
-    }[]
-    checked: (catagory: string, state: boolean) => void,
-    swapOrder: (order: any) => void
+
 }
 
-const Checked: React.FC<Props> = ({ list, checked }) => {
+const Checked: React.FC<Props> = ({ }) => {
     const length = [0, 1, 2, 3, 4]
-    // const [settings, setSettings, check, swapOrder] = useContext(SettingsContext)
+    const [settings, setSettings, check, swapOrder] = useContext(SettingsContext)
     let order = useRef(length.map((_: any, index: any) => index));
     //@ts-ignore
     const [springs, setSprings] = useSprings(length.length, fn(order.current));
@@ -80,10 +74,10 @@ const Checked: React.FC<Props> = ({ list, checked }) => {
                     [y, scale],
                     (y, s) => `translate3d(0,${y}px,0) scale(${s})`
                 ),
-                marginBottom: list.length - 1 ? "15vh" : "0"
+                marginBottom: settings.length - 1 ? "15vh" : "0"
             }}
         >
-            <Title list={list} checkState={checked} index={length[i]} />
+            <Title index={length[i]} />
         </animated.li>
     ));
 }

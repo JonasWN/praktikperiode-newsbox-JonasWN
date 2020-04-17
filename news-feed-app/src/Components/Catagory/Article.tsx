@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Cover from '../../Assets/images/article.png'
-import useAsyncHook from './useAsyncHook'
+import useAsyncHook from '../../Hooks/useAsyncHook'
 import { v4 as uuidv4 } from "uuid";
 import Text from './Text'
 import Lottie from 'react-lottie';
@@ -9,12 +9,11 @@ import * as animationData from '../../Animations/loading (2).json'
 
 interface Props {
     title: string,
-    saveArticle: (title: string, description: string, cover: string, link: string, catagory: string) => void,
     refresh: boolean,
     setFreshed: () => void
 }
 
-const Article: React.FC<Props> = ({ title, saveArticle, refresh, setFreshed }) => {
+const Article: React.FC<Props> = ({ title, refresh, setFreshed }) => {
     const [search, setSearch] = useState("");
     const [query, setQuery] = useState(`https://rss.nytimes.com/services/xml/rss/nyt/${title}.xml`);
     const [result, loading]: any = useAsyncHook(query);

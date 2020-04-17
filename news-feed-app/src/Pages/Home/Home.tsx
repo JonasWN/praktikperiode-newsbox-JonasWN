@@ -3,14 +3,10 @@ import Catagory from '../../Components/Catagory/Catagory'
 import Pullable from 'react-pullable'
 
 interface Props {
-    articles: {
-        title: string;
-        checked: boolean;
-    }[],
-    saveArticle: (title: string, description: string, cover: string, link: string, catagory: string) => void,
+
 }
 
-const Home: React.FC<Props> = ({ articles, saveArticle }) => {
+const Home: React.FC<Props> = ({ }) => {
     const [refresh, setRefresh] = useState(false)
 
     // useEffect(() => {
@@ -26,7 +22,7 @@ const Home: React.FC<Props> = ({ articles, saveArticle }) => {
     return (
         <main className="">
             <Pullable onRefresh={() => setRefresh(!refresh)}> </Pullable>
-            <Catagory articles={articles} saveArticle={saveArticle} refresh={refresh} setFreshed={refreshed} />
+            <Catagory refresh={refresh} setFreshed={refreshed} />
         </main>
     )
 }

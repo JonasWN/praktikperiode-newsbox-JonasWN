@@ -5,11 +5,12 @@ import * as animationData from '../../Animations/search2.json'
 
 const Search = () => {
     const [toggle, setToggle] = useState(false)
-    const inputRef = useRef()
+    const inputRef: any = useRef<HTMLInputElement>(null)
 
     const defaultOptions = {
         loop: false,
         autoplay: toggle,
+        //@ts-ignore
         animationData: animationData.default,
         rendererSettings: {
             preserveAspectRatio: 'xMidYMid slice'
@@ -21,7 +22,6 @@ const Search = () => {
         if (!toggle)
             inputRef.current.focus()
     }
-
 
     return (
         <section className="border-b border-border border-l flex justify-around items-center p-2 bg-secondary rounded h-10 mt-8">

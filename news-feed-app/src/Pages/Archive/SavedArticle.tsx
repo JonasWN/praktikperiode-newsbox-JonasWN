@@ -6,11 +6,9 @@ import { SaveArticleContext } from '../../Context/SaveArticleContext'
 
 interface Props {
     catagory: string,
-    savedList: any,
-    delArticle: (id: string) => void
 }
 
-const SavedArticle: React.FC<Props> = ({ catagory, delArticle }) => {
+const SavedArticle: React.FC<Props> = ({ catagory }) => {
     const [savedList] = useContext(SaveArticleContext)
     const [checked, setChecked]: any = useState([])
 

@@ -1,19 +1,20 @@
 import React, { useState } from 'react'
 import CatagoryIcon from '../../Assets/images/surf.svg'
-import { IoIosArrowForward } from "react-icons/io";
-import Lottie from 'react-lottie';
-import * as animationData from '../../Animations/open.json'
+import Lottie from 'lottie-react-web';
+import * as animationData from '../../Animations/bookmark.json'
 
-const Summary = ({ title }) => {
+interface Props {
+    title: string,
+}
+
+const Summary: React.FC<Props> = ({ title }) => {
     const [loaded, setLoaded] = useState(false)
-
-    setTimeout(() => {
-        setLoaded(true)
-    }, 1000);
+    const [open, setOpen] = useState(false)
 
     const defaultOptions = {
         loop: false,
         autoplay: true,
+        //@ts-ignore
         animationData: animationData.default,
         rendererSettings: {
             preserveAspectRatio: 'xMidYMid slice'
@@ -21,8 +22,8 @@ const Summary = ({ title }) => {
     };
 
     return (
-        <summary className='flex items-center h-12 px-4 sticky z-10 top-0 bg-primary border-border border-b'>
-            <div className='flex items-center'>
+        <summary className='flex items-center h-12 px-4 sticky z-10 top-0 bg-primary border-border border-b' onClick={() => setOpen(!open)}>
+            <div className='flex items-center' >
                 <picture className='shadow-lg rounded-full h-8 w-8 p-1 flex justify-center items-center mr-2'>
                     <img src={CatagoryIcon} alt="Catagory Icon" className='w-4/5' />
                 </picture>
@@ -30,14 +31,14 @@ const Summary = ({ title }) => {
             </div>
             {/* <IoIosArrowForward className="ml-auto" /> */}
             <div className="ml-auto h-12 flex items-center rotate-90">
-                {loaded &&
-                    <Lottie options={defaultOptions}
-                        height={25}
-                        width={25}
-                        style={{ transform: 'rotate(90deg)' }}
-                        segments={[1, 5]}
-                    />
-                }
+                <Lottie options={defaultOptions}
+                    height={225}
+                    width={12}
+                    direction={open ? 1 : -1}
+                    style={{ pointerEvents: 'none' }}
+                // style={{ transform: 'rotate(90deg)' }}
+                />
+
             </div>
         </summary>
     )

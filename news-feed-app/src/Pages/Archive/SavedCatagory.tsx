@@ -4,22 +4,17 @@ import SavedArticle from './SavedArticle'
 import { SettingsContext } from '../../Context/SettingsContext'
 
 interface Props {
-    savedList: any,
-    articles: {
-        title: string;
-        checked: boolean;
-    }[],
-    delArticle: (id: string) => void
+
 }
 
-const SavedCatagory: React.FC<Props> = ({ savedList, articles, delArticle }) => {
+const SavedCatagory: React.FC<Props> = () => {
     const [settings, setSettings, check] = useContext(SettingsContext)
     const [checked, setChecked]: any = useState([])
 
     useEffect(() => {
         let checkList = settings.filter((article: any) => article.checked === true)
         setChecked([...checkList])
-    }, [articles])
+    }, [settings])
 
     return (
         checked.map((item: any, id: any) => {
@@ -28,11 +23,11 @@ const SavedCatagory: React.FC<Props> = ({ savedList, articles, delArticle }) => 
                     {id === checked.length - 1 ?
                         <details className="border-border mb-12">
                             <Summary title={item.title} />
-                            <SavedArticle catagory={item.title} savedList={savedList} delArticle={delArticle} />
+                            <SavedArticle catagory={item.title} />
                         </details>
                         : <details className="border-border" >
                             <Summary title={item.title} />
-                            <SavedArticle catagory={item.title} savedList={savedList} delArticle={delArticle} />
+                            <SavedArticle catagory={item.title} />
                         </details>}
                 </React.Fragment>
             )

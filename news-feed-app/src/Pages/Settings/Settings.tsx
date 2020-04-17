@@ -3,16 +3,10 @@ import Checked from './Checked'
 import Toggle from './Toggle'
 
 interface Props {
-    list: {
-        title: string;
-        checked: boolean;
-        id: string;
-    }[]
-    checked: (catagory: string, state: boolean) => void,
-    swapOrder: (order: any) => void
+
 }
 
-const Settings: React.FC<Props> = ({ list, checked, swapOrder }) => {
+const Settings: React.FC<Props> = () => {
     return (
         <React.Fragment>
             <main className="bg-settings settings-height px-4">
@@ -21,7 +15,7 @@ const Settings: React.FC<Props> = ({ list, checked, swapOrder }) => {
                     <h3 className="text-sm font-normal text-catagoryHd">Catagories</h3>
                 </div>
                 <ul className="bg-primary rounded-lg shadow-lg w-full relative" style={{ height: '240px' }}>
-                    <Checked list={list} checked={checked} swapOrder={swapOrder} />
+                    <Checked />
                 </ul>
                 <Toggle />
             </main>
