@@ -6,27 +6,27 @@ export const SettingsContext: any = createContext([]);
 export const SettingsProvider: React.FC = (props: any) => {
     const [checkedList, setCheckedList] = useState([
         {
-            title: 'Europe',
+            title: 'Technology',
             checked: true,
             id: uuidv4(),
         },
         {
-            title: 'Health',
+            title: 'Television',
             checked: true,
             id: uuidv4(),
         },
         {
-            title: 'Sports',
+            title: 'Movies',
             checked: true,
             id: uuidv4(),
         },
         {
-            title: 'Business',
+            title: 'Books',
             checked: true,
             id: uuidv4(),
         },
         {
-            title: 'Travel',
+            title: 'Science',
             checked: true,
             id: uuidv4(),
         },
