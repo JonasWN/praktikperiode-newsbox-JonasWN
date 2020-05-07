@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Footer from './Components/Footer/Footer';
 import Home from './Pages/Home/Home';
 import Header from './Components/Header/Header';
@@ -9,7 +9,6 @@ import {
   Switch,
   Route,
 } from "react-router-dom";
-import { v4 as uuidv4 } from "uuid";
 import { SettingsProvider } from './Context/SettingsContext'
 import { SaveArticleProvider } from './Context/SaveArticleContext'
 
@@ -18,7 +17,6 @@ const App: React.FC = () => {
     <Router>
       <>
         <Header />
-
         <Switch>
           <SettingsProvider>
             <SaveArticleProvider>
@@ -28,9 +26,7 @@ const App: React.FC = () => {
             </SaveArticleProvider>
           </SettingsProvider>
         </Switch>
-
         <Footer />
-
       </>
     </Router >
   );

@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useContext, useRef, createRef } from 'react'
+import React, { useEffect, useState, useContext } from 'react'
 import Summary from './Summary'
 import Article from './Article'
 import { SettingsContext } from '../../Context/SettingsContext'

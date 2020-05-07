@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef, useContext } from 'react'
+import React, { useContext } from 'react'
 import { v4 as uuidv4 } from "uuid";
 import { SettingsContext } from '../../Context/SettingsContext'
 

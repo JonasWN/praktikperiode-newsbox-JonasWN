@@ -1,5 +1,4 @@
 import React from 'react'
-import Catagory from '../../Components/Catagory/Catagory'
 import SavedCatagory from './SavedCatagory'
 
 interface Props {

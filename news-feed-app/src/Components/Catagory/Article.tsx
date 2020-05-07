@@ -6,7 +6,6 @@ import Text from './Text'
 import Lottie from 'react-lottie';
 import * as animationData from '../../Animations/loading (2).json'
 
-
 interface Props {
     title: string,
     refresh: boolean,
@@ -14,7 +13,6 @@ interface Props {
 }
 
 const Article: React.FC<Props> = ({ title, refresh, setFreshed }) => {
-    const [search, setSearch] = useState("");
     const [query, setQuery] = useState(`https://rss.nytimes.com/services/xml/rss/nyt/${title}.xml`);
     const [result, loading]: any = useAsyncHook(query);
 

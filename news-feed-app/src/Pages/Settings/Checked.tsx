@@ -1,4 +1,4 @@
-import React, { useRef, useEffect, useContext } from 'react'
+import React, { useRef, useContext } from 'react'
 import Title from './Title'
 import clamp from "lodash-es/clamp";
 import swap from "lodash-move";
@@ -51,17 +51,6 @@ const Checked: React.FC<Props> = ({ }) => {
             order.current = newOrder;
         }
     });
-    // return (
-    //     <React.Fragment>
-    //         {/* {list.map((article) => {
-    //             return (
-    //                 <li className="flex justify-between items-center border-border border-b h-12 px-4" key={article.id}>
-    //                     <Title title={article.title} checkState={checked} artChecked={article.checked} />
-    //                 </li>
-    //             )
-    //         })} */}
-    //     </React.Fragment>
-    // )
     //@ts-ignore
     return springs.map(({ zIndex, shadow, y, scale }, i) => (
         <animated.li
